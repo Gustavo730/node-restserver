@@ -9,8 +9,14 @@ process.env.NODE_ENV = process.env.NODE_ENV || 'dev';
 let urlBD;
 
 if (process.env.NODE_ENV === 'dev') {
-  urlBD = '//localhost:27017/cafe';
+  urlBD = 'mongodb://localhost:27017/cafe';
 } else {
   urlBD = process.env.MONGO_URI;
 }
-process.env.URL_BD = urlBD;
+process.env.URL_DB = urlBD;
+
+//  Vencimiento del token { 60' * 60'' * 24hrs * 30d }
+process.env.TOKEN_EXPIRES = 60 * 60 * 24 * 30;
+
+//  SEED de autenticación
+process.env.SEED = process.env.SEED || 'seed-dev';
